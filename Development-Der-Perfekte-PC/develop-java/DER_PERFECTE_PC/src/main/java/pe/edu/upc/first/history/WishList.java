@@ -1,27 +1,35 @@
 package pe.edu.upc.first.history;
 import pe.edu.upc.first.business.Computer;
 import pe.edu.upc.first.business.Product;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Collections;
+//import java.util.Collections;
 //import java.util.stream.Collectors;
 //import java.util.stream.Stream;
 
 public class WishList {
-    private Computer computer = new Computer();
-    List<Computer> listComputer = new LinkedList<Computer>();
-    private Product product = new Product();
-    List<Product> listProduct = new LinkedList<Product>()
+    private Computer computer;
+    List<Computer> listComputer;
+    private Product product;
+    List<Product> listProduct;
 
     //Builder
     public WishList() {
+        this.computer = new Computer;
+        this.listComputer = new ArrayList<>();
+        this.product = Product;
+        this.listProduct = new ArrayList<>();
     }
 
-    //Methods
-    public void viewComputerHistory() {
+    public WishList(Computer computer, List<Computer> listComputer, Product product, List<Product> listProduct) {
+        this.computer = computer;
+        this.listComputer = listComputer;
+        this.product = product;
+        this.listProduct = listProduct;
     }
 
-    public void viewDetails() {
+
+    public void viewWishList() {
     }
 
     public void searchByMonth() {

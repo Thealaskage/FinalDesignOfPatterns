@@ -5,12 +5,24 @@ import pe.edu.upc.first.payment.Order;
 import pe.edu.upc.first.business.Computer;
 
 public class Buyer extends Client{
-    private Wishslist wishsList = new Wishlist();
-    private OrderHistory orderHistory = new OrderHistory8);
-    private Order currentOrder = new Order();
-    private Computer selectedComputer = new Computer();
+    private WishList wishList;
+    private OrderHistory orderHistory;
+    private Order currentOrder;
+    private Computer selectedComputer;
 
-    public Buyer(){}//constructor
+    public Buyer(){
+        this.wishList = new WishList;
+        this.orderHistory = new OrderHistory;
+        this.currentOrder = new Order;
+        this.selectedComputer = new Computer;
+    }
+
+    public Buyer(WishList wishList, OrderHistory orderHistory, Order currentOrder, Computer selectedComputer) {
+        this.wishList = wishList;
+        this.orderHistory = orderHistory;
+        this.currentOrder = currentOrder;
+        this.selectedComputer = selectedComputer;
+    }
 
     public void addOrder(){}
     public void editData(){}

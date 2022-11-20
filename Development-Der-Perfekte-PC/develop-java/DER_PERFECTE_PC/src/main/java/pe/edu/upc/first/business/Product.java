@@ -3,15 +3,25 @@ import pe.edu.upc.first.component.Entity;
 
 public class Product {
 
-    private Entity typeproduct = new Entity();
+    private Entity typeProduct;
 
-    public Product(){}//constructor
+    public Product(Entity typeProduct) {
+        this.typeProduct = typeProduct;
+    }
+    public Product(){
+        this.typeProduct = new Entity;
+    }
 
+    public Entity getTypeProduct() {
+        return typeProduct;
+    }
 
-    public String getName(){ return name;}
-    public String getBrand(){ return brand;}
-    public void getDescription(){ return description;}
-    public void getPrice(){ return price;}
-    public void getId(){ return id;}
-    //public void getData(){}
+    public void setTypeProduct(Entity typeProduct) {
+        this.typeProduct = typeProduct;
+    }
+
+    public void chooseProduct(int typeProduct){
+
+    }
+
 }
