@@ -17,24 +17,23 @@ public class Order {
     private List<Computer> shoppingList;
     private long datePurchase;
     private Scanner entrada;
+    private String message;
 
 
     public Order(){
-        this.trackingNumber = trackingNumber;
-        this.computer = new Computer;
+        this.computer = new Computer();
         this.listOrder = new ArrayList<>();
         this.shoppingList = new ArrayList<>();
-        this.datePurchase = datePurchase;
         this.entrada = new Scanner(System.in);
     }
 
-    public Order(int trackingNumber, Computer computer, List<Computer> listOrder, List<Computer> shoppingList, long datePurchase, Scanner entrada) {
+    public Order(int trackingNumber, Computer computer, List<Computer> listOrder, List<Computer> shoppingList, long datePurchase, String message) {
         this.trackingNumber = trackingNumber;
         this.computer = computer;
         this.listOrder = listOrder;
         this.shoppingList = shoppingList;
         this.datePurchase = datePurchase;
-        this.entrada = entrada;
+        this.message = message;
     }
 
     public int getTrackingNumber() {
@@ -61,6 +60,22 @@ public class Order {
         this.datePurchase = datePurchase;
     }
 
+    public List<Computer> getShoppingList() {
+        return shoppingList;
+    }
+
+    public void setShoppingList(List<Computer> shoppingList) {
+        this.shoppingList = shoppingList;
+    }
+
+    public String getMessageOrder() {
+        return message;
+    }
+
+    public void setMessageOrder(String message) {
+        this.message = message;
+    }
+
     public void addComputer(Computer computer){
         listOrder.add(computer);
     }
@@ -68,34 +83,50 @@ public class Order {
         if(!listOrder.isEmpty()){
             listOrder.remove(listOrder.size() - 1);
         }else{
-            System.out.println("La lista esta vacia");
+            System.out.println("ListOrder is empty");
         }
     }
-    public void confirmOrder(){
-        String message;
-        System.out.println("Confirm or Cancel");
-        if(message = entrada.nextInt() == "Confirm"){
+    public void confirmOrder(String message){
+        System.out.println("Confirm or Cancel order");
+        if((message = entrada.nextLine()) == "Confirm"){
             shoppingList.add(computer);
-        }
-    }
-    public void cancelOrder(){
-        String message;
-        System.out.println("Confirm or Cancel");
-        if(message = entrada.nextInt() == "Cancel"){
-            shoppingList.remove(shoppingList.size() - 1);
-        }
-    }
-    public void saveChange(){
-        String message;
-        if(message = entrada.nextInt() == "Confirm"){
+            listOrder.remove(listOrder.size() - 1);
             System.out.println("Purchase made");
-        }else if(message = entrada.nextInt() == "Cancel"){
-            System.out.println("Pucharse canceled");
+        }
     }
+    public void cancelOrder(String message){
+        System.out.println("Confirm or Cancel order");
+        if((message = entrada.nextLine()) == "Cancel"){
+            shoppingList.remove(shoppingList.size() - 1);
+            listOrder.add(computer);
+            System.out.println("Purchase canceled");
+        }
+    }
+    public void saveChange(String message){
+        System.out.println("Save Changes?");
+        confirmOrder(message);
+        cancelOrder(message);
     }
     public void calcTotal(){
+        double price = 0;
         for(Computer c : shoppingList){
-
+            price += (c.getEntity().getPrice());
+            return;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "trackingNumber=" + trackingNumber +
+                ", computer=" + computer +
+                ", listOrder=" + listOrder +
+                ", shoppingList=" + shoppingList +
+                ", datePurchase=" + datePurchase +
+                '}';
+    }
+    public void showListOrder(){
+        System.out.println(listOrder.toString());
+    }
+
 }

@@ -1,26 +1,28 @@
 package pe.edu.upc.first.payment;
-import java.util.Scanner
+import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 public class Card {
     private String ownerName;
     private  long cardNumber;
     private String cardExDate;
     private int cardCVV;
     private Scanner entrada;
+    private BufferedReader reader;
+    private String cardBrand;
 
     public Card() {
-        this.ownerName = ownerName;
-        this.cardNumber = cardNumber;
-        this.cardExDate = cardExDate;
-        this.cardCVV = cardCVV;
         this.entrada = new Scanner(System.in);
+        this.reader = new BufferedReader(new InputStreamReader(System.in));
     }
 
-    public Card(String ownerName, long cardNumber, String cardExDate, int cardCVV, Scanner entrada) {
+    public Card(String ownerName, long cardNumber, String cardExDate, int cardCVV, String cardBrand) {
         this.ownerName = ownerName;
         this.cardNumber = cardNumber;
         this.cardExDate = cardExDate;
         this.cardCVV = cardCVV;
-        this.entrada = entrada;
+        this.cardBrand = cardBrand;
     }
 
     public String getOwnerName() {
@@ -55,28 +57,48 @@ public class Card {
         this.cardCVV = cardCVV;
     }
 
-    public Scanner getEntrada() {
-        return entrada;
+    public String getCardBrand() {
+        return cardBrand;
     }
 
-    public void setEntrada(Scanner entrada) {
-        this.entrada = entrada;
+    public void setCardBrand(String cardBrand) {
+        this.cardBrand = cardBrand;
     }
 
-    public void addOwnerName(){
-        System.out.println("Owner Name: ");
-        ownerName = entrada.nextInt();
+    public void addOwnerName() throws IOException {
+        System.out.println("Enter card ownerName");
+        ownerName = reader.readLine();
+        setOwnerName(ownerName);
     }
-    public void addCardNumber(){
-        System.out.println("Card Number: ");
-        cardNumber = entrada.nextInt();
+    public void addCardNumber() throws IOException {
+        System.out.println("Enter card number");
+        cardNumber = Long.valueOf(reader.readLine());
+        setCardNumber(cardNumber);
     }
-    public void addCardExDate(){
-        System.out.println("Expiration Date: ");
-        cardExDate = entrada.nextInt();
+    public void addCardExDate() throws IOException {
+        System.out.println("Enter card expiration day");
+        cardExDate = reader.readLine();
+        setCardExDate(cardExDate);
     }
-    public void addCardCVV(){
-        System.out.println("CardCVV: ");
-        cardCVV = entrada.nextInt();
+    public void addCardCVV() throws IOException {
+        System.out.println("Enter card number");
+        cardCVV = Integer.parseInt(reader.readLine());
+        setCardCVV(cardCVV);
+    }
+    public void addCardBrand() throws IOException {
+        System.out.println("Enter card number");
+        cardBrand = reader.readLine();
+        setCardBrand(cardBrand);
+    }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "ownerName='" + ownerName + '\'' +
+                ", cardNumber=" + cardNumber +
+                ", cardExDate='" + cardExDate + '\'' +
+                ", cardCVV=" + cardCVV +
+                ", cardBrand='" + cardBrand + '\'' +
+                '}';
     }
 }

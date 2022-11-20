@@ -9,16 +9,16 @@ import java.util.List;
 public class OrderHistory {
     private Order order;
     private List<Computer> shoppingList;
-    private List<Order> orderHistory;
+    private List<Computer> orderHistory;
     private int number;
 
     //Builder
 
 
     public OrderHistory() {
-        this.order = order;
-        this.shoppingList = new Arraylist<>();
-        this.orderHistory = new Arraylist<>(shoppingList);
+        this.order = new Order();
+        this.shoppingList = new ArrayList<Computer>();
+        this.orderHistory = new ArrayList<Computer>(shoppingList);
         this.number = number;
     }
 
@@ -53,32 +53,46 @@ public class OrderHistory {
         this.number = number;
     }
 
-    //Methods
-    public void viewPurchaseHistory() {
-        for(Order c : orderHistory){
-            System.out.println(c);
-        }
-    }
 
     public void viewDetails() {
-        for(Order c : orderHistory){
-            System.out.println(c.getTrackingNumber());
-            System.out.println(c.getDatePurchase());
-
-    }
-
-    public void searchByMonth(string month) {
-        if(orderHistory.equals(month)){
-            return orderHistory;
-        }else{
-            System.out.println("Month not found");
+            for(Computer c : orderHistory){
+                System.out.println(c.getOrder().getDatePurchase());
+                System.out.println(c.getOrder().getTrackingNumber());
+            }
         }
+
+
+    public List<Computer> searchByDatePurchase(Long datePurchase) {
+        List<Computer> result = new ArrayList<Computer>();
+        datePurchase = order.getDatePurchase();
+       for(Computer c : orderHistory){
+           if(orderHistory.contains(datePurchase)){//Si contiene
+               result.add(c);//Que lo copie a la nueva lista
+           }else{
+               System.out.println("Date not found");
+           }
+       }
+        return result;//Y la muestre
     }
 
     public void deleteOrderHistoryByNumber(int number){
         orderHistory.remove(number);
     }
+    public void deleteLast(){
+        orderHistory.remove(orderHistory.size()-1);
+    }
     public void deleteAll(){
         orderHistory.clear();
     }
+
+    @Override
+    public String toString() {
+        return "OrderHistory{" +
+                "orderHistory=" + orderHistory +
+                '}';
+    }
+    public void showOrderHistory() {
+        System.out.println(orderHistory.toString());
+    }
+
 }

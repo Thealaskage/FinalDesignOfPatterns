@@ -1,23 +1,26 @@
 package pe.edu.upc.first.component;
 
-public abstract class Entity{
+public class Entity{
     private double price;
     private String name;
     private String brand;
     private String description;
     private int id;
+    private Entity category;
 
-    public Entity(){
+    public Entity() {
         super();
+        this.category = new Entity();
     }
 
-    public Entity(double price, String name, String brand, String description, int id) {
+    public Entity(double price, String name, String brand, String description, int id, Entity category) {
         super();
         this.price = price;
         this.name = name;
         this.brand = brand;
         this.description = description;
         this.id = id;
+        this.category = category;
     }
 
     public double getPrice() {
@@ -60,10 +63,17 @@ public abstract class Entity{
         this.id = id;
     }
 
+    public Entity getCategory() {
+        return category;
+    }
+
+    public void setCategory(Entity category) {
+        this.category = category;
+    }
+
     @java.lang.Override
     public java.lang.String toString() {
-        return "Entity{" +
-                "price=" + price +
+        return  "price=" + price +
                 ", name='" + name + '\'' +
                 ", brand='" + brand + '\'' +
                 ", description='" + description + '\'' +

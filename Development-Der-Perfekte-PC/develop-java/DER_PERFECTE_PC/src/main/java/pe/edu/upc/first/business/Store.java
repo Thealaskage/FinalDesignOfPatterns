@@ -1,4 +1,5 @@
 package pe.edu.upc.first.business;
+import pe.edu.upc.first.user.Provider;
 public class Store {
 
     private Computer computer;
@@ -6,6 +7,7 @@ public class Store {
     private String storeDirection;
     private String storeUrl;
     private long storeNumber;
+    private Provider provider;
 
 
 
@@ -18,17 +20,61 @@ public class Store {
     }
 
     public Store(){
-        this.computer = new Computer;
+        this.computer = new Computer();
         this.storeName = storeName;
         this.storeDirection = storeDirection;
         this.storeUrl = storeUrl;
         this.storeNumber = storeNumber;
+        this.provider = new Provider();
     }
-    public void setStoreName(){}
-    public void setStoreDirection(){}
-    public void setStoreUrl(){}
-    public void setStoreNumber(){}
-    public void addProduct(){}
-    public void deleteProduct(){}
-    public String getStoreData(){}
+
+    public Computer getComputer() {
+        return computer;
+    }
+
+    public void setComputer(Computer computer) {
+        this.computer = computer;
+    }
+
+    public String getStoreName() {
+        return storeName;
+    }
+
+    public void setStoreName(String storeName) {
+        this.storeName = storeName;
+    }
+
+    public String getStoreDirection() {
+        return storeDirection;
+    }
+
+    public void setStoreDirection(String storeDirection) {
+        this.storeDirection = storeDirection;
+    }
+
+    public String getStoreUrl() {
+        return storeUrl;
+    }
+
+    public void setStoreUrl(String storeUrl) {
+        this.storeUrl = storeUrl;
+    }
+
+    public long getStoreNumber() {
+        return storeNumber;
+    }
+
+    public void setStoreNumber(long storeNumber) {
+        this.storeNumber = storeNumber;
+    }
+
+    public void addProduct(){
+        provider.addProduct(provider.getProduct());
+    }
+    public void deleteProduct(){
+        provider.deleteProduct(provider.getProduct());
+    }
+    public void getStoreData(){
+        provider.showListToStore();
+    }
 }
