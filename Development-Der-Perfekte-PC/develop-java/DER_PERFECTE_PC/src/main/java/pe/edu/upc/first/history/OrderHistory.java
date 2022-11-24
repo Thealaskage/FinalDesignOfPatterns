@@ -8,7 +8,6 @@ import java.util.List;
 
 public class OrderHistory {
     private Order order;
-    private List<Computer> shoppingList;
     private List<Computer> orderHistory;
     private int number;
 
@@ -17,14 +16,12 @@ public class OrderHistory {
 
     public OrderHistory() {
         this.order = new Order();
-        this.shoppingList = new ArrayList<Computer>();
-        this.orderHistory = new ArrayList<Computer>(shoppingList);
+        this.orderHistory = new ArrayList<Computer>(order.getShoppingList());
         this.number = number;
     }
 
     public OrderHistory(Order order, List<Computer> shoppingList, List<Computer> orderHistory, int number) {
         this.order = order;
-        this.shoppingList = shoppingList;
         this.orderHistory = orderHistory;
         this.number = number;
     }
@@ -75,9 +72,6 @@ public class OrderHistory {
         return result;//Y la muestre
     }
 
-    public void deleteOrderHistoryByNumber(int number){
-        orderHistory.remove(number);
-    }
     public void deleteLast(){
         orderHistory.remove(orderHistory.size()-1);
     }

@@ -58,13 +58,13 @@ public class Provider extends Client {
     public void addProduct(Entity productToAdd){
         listProductToStore.add(product);
     }
-    public void deleteProduct(Entity productToDelete){
+    public void deleteLastProduct(){
         listProductToStore.remove(listProductToStore.size() - 1);
     }
-    public void storeOptions(String name, double price, Entity category, String description, Entity productToAdd, Entity productToDelete){
+    public void storeOptions(String name, double price, Entity category, String description, Entity productToAdd){
         System.out.println("\nChoose an option.\n" +
                 "1 - Add product \n" +
-                "2 - Delete product \n" +
+                "2 - Delete last product \n" +
                 "3 - Edit product name \n" +
                 "4 - Set price\n" +
                 "5 - Edit category\n" +
@@ -78,7 +78,7 @@ public class Provider extends Client {
                     addProduct(productToAdd);
                     break;
                 case 2:
-                    deleteProduct(productToDelete);
+                    deleteLastProduct();
                     break;
                 case 3:
                     editProductName(name);
@@ -92,13 +92,12 @@ public class Provider extends Client {
                 case 6:
                     editDescription(description);
                     break;
-
                 case 7:
                     break;
             }
 
 
-        }while(option != 5);
+        }while(option != 7);
     }
 
 

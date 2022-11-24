@@ -32,7 +32,7 @@ public class ComponentFinder {
     }
 
     public void search(){
-        computer.chooseProduct(computer.getEntity());
+        computer.chooseProduct();
     }
     public void saveProduct(Entity product){
         wishList.addComponent(product);

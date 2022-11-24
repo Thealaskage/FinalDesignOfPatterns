@@ -103,7 +103,7 @@ public abstract class Client {
         phone = Long.parseLong(reader.readLine());
         setPhone(Long.parseLong(String.valueOf(phone)));
     }
-    public void checkIn(int id, String name, String mail, String password, long phone) throws IOException {
+    public void checkIn() throws IOException {
         System.out.println("Enter ur id");
         id = Integer.parseInt(reader.readLine());
         setId(id);

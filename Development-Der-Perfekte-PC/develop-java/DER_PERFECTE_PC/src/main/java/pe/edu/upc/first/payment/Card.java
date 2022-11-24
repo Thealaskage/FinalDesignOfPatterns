@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 public class Card {
     private String ownerName;
-    private  long cardNumber;
+    private long cardNumber;
     private String cardExDate;
     private int cardCVV;
     private Scanner entrada;

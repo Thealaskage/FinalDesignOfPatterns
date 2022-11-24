@@ -38,41 +38,35 @@ public class ChatBot {
         this.question = question;
     }
 
-    public void run(String question, String message) {
+    public void run() {
         System.out.println("\nWelcome" + buyer.getName() + " my name is JuanBot, please choose a option\n" +
                 "1 - Make a question\n" +
                 "2 - Send a message\n" +
-                "3 - Make a question\n" +
-                "4 - Exit chatbot");
+                "3 - Exit chatbot");
         int option = 0;
         do{
             option = entrada.nextInt();
             switch (option){
                 case 1:
-                    askBot(question);
+                    askBot();
                     showResponse();
                     break;
                 case 2:
-                    sendMessageBot(message)
+                    sendMessageBot();
                     break;
                 case 3:
-                    editProductName(name);
-                    break;
-                case 4:
                     break;
             }
-
-
-        }while(option != 4);
+        }while(option != 3);
     }
 
-    public String sendMessageBot(String message) {
+    public String sendMessageBot() {
         System.out.println("Send ur message");
         message = entrada.nextLine();
         return message;
     }
 
-    public String askBot(String question) {
+    public String askBot() {
         System.out.println("Make ur question");
         question = entrada.nextLine();
         return question;
@@ -80,6 +74,29 @@ public class ChatBot {
 
     public void showResponse() {
         System.out.println("Bot Response");
+    }
+    public void meetIdealComputer(){
+        System.out.println("What is ur amount for the PC");
+        message = entrada.nextLine();
+        System.out.println("What kind of computer do you want");
+        message = entrada.nextLine();
+        System.out.println("Do you want an affordable or expensive graphics card?");
+        message = entrada.nextLine();
+        System.out.println("Do you want an affordable or expensive processor?");
+        message = entrada.nextLine();
+        System.out.println("Do you want an affordable or expensive ram?");
+        message = entrada.nextLine();
+        System.out.println("Do you want an affordable or expensive motherboard?");
+        message = entrada.nextLine();
+        System.out.println("Do you want an affordable or expensive case?");
+        message = entrada.nextLine();
+        System.out.println("Do you want an affordable or expensive power supply?");
+        message = entrada.nextLine();
+        System.out.println("Do you want a lot or a little storage?");
+        message = entrada.nextLine();
+
+        showResponse();
+
     }
 
 }

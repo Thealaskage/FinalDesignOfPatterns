@@ -10,7 +10,7 @@ import pe.edu.upc.first.component.Entity;
 import pe.edu.upc.first.payment.Order;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Scanner;
 
 
 public class Computer {
@@ -24,6 +24,7 @@ public class Computer {
     private List<Entity> listProduct;
     private Entity entity;
     private Order order;
+    private Scanner entrada;
 
     public Computer(){
         this.processor = new Processor();
@@ -36,8 +37,9 @@ public class Computer {
         this.listProduct = new ArrayList<Entity>();
         this.entity = new Entity();
         this.order = new Order();
+        this.entrada = new Scanner(System.in);
     }
-    public Computer(Processor processor, Ram ram, Storage storage, MotherBoard motherboard, GraphicsCard gpu, Case _case, PowerSupply powerSupply, List<Entity> listProduct, Entity entity, Order order) {
+    public Computer(Processor processor, Ram ram, Storage storage, MotherBoard motherboard, GraphicsCard gpu, Case _case, PowerSupply powerSupply) {
         this.processor = processor;
         this.ram = ram;
         this.storage = storage;
@@ -45,9 +47,6 @@ public class Computer {
         this.gpu = gpu;
         this._case = _case;
         this.powerSupply = powerSupply;
-        this.listProduct = listProduct;
-        this.entity = entity;
-        this.order = order;
     }
 
     public Processor getProcessor() {
@@ -125,37 +124,60 @@ public class Computer {
         this.order = order;
     }
 
-    public void addProcessor(Processor processor){
+    public void addProcessor(){
         listProduct.add(processor);
     }
-    public void addRam(Ram ram){
+    public void addRam(){
         listProduct.add(ram);
     }
-    public void addStorage(Storage storage){
+    public void addStorage(){
         listProduct.add(storage);
     }
-    public void addMotherboard(MotherBoard motherboard){
+    public void addMotherboard(){
         listProduct.add(motherboard);
     }
-    public void addGpu(GraphicsCard gpu){
+    public void addGpu(){
         listProduct.add(gpu);
     }
-    public void addCase(Case _case){
+    public void addCase(){
         listProduct.add(_case);
     }
-    public void addPowerSupply(PowerSupply powerSupply){
+    public void addPowerSupply(){
         listProduct.add(powerSupply);
     }
-    public void editComponent(Entity entity){
+    public void editComponent(Entity componentToAdd, Entity componentToDelete){
         System.out.println("\nChoose an option.\n" +
                 "1 - Add Component\n" +
-                "2 - Delete Component");
-    }
+                "2 - Delete Component\n" +
+                "3 - Exit");
 
+        int option = 0;
+
+        do{
+            option = entrada.nextInt();
+            switch (option){
+                case 1:
+                    addComponent(componentToAdd);
+                    break;
+                case 2:
+                    deleteComponent(componentToDelete);
+                case 3:
+                    break;
+
+            }
+
+        }while(option != 3);
+
+    }
+    public void showDetailComponents(){//Us08
+            for(Entity pr : listProduct){
+                System.out.println(pr.toString());
+            }
+        }
     public void addComponent(Entity entity){
         listProduct.add(entity);
     }
-    public void chooseProduct(Entity typeProduct){
+    public void chooseProduct(){
         System.out.println("\nChoose an option to buy.\n" +
                 "1 - Add processor \n" +
                 "2 - Add ram\n" +
@@ -165,6 +187,37 @@ public class Computer {
                 "6 - Add case\n" +
                 "7 - Add power supply\n" +
                 "8- Delete Component");
+        int option = 0;
+        do{
+            option = entrada.nextInt();
+            switch (option){
+                case 1:
+                    addProcessor();
+                    break;
+                case 2:
+                    addRam();
+                    break;
+                case 3:
+                    addStorage();
+                    break;
+                case 4:
+                    addMotherboard();
+                    break;
+                case 5:
+                    addGpu();
+                    break;
+                case 6:
+                    addCase();
+                    break;
+                case 7:
+                    addPowerSupply();
+                    break;
+                case 8:
+                    break;
+            }
+
+
+        }while(option != 8);
     }
     public void deleteComponent(Entity entity){
         listProduct.remove(entity);

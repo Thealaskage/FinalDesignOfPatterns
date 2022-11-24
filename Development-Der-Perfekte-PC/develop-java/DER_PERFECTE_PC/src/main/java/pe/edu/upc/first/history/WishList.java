@@ -31,6 +31,7 @@ public class WishList {
 
 
     public void viewWishList() {
+        System.out.println("WISHLIST\n");
         System.out.println("Computers\n");
         System.out.println(listComputer.toString());
         System.out.println("Components\n");

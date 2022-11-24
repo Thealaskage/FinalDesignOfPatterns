@@ -13,14 +13,13 @@ public class Entity{
         this.category = new Entity();
     }
 
-    public Entity(double price, String name, String brand, String description, int id, Entity category) {
+    public Entity(double price, String name, String brand, String description, int id) {
         super();
         this.price = price;
         this.name = name;
         this.brand = brand;
         this.description = description;
         this.id = id;
-        this.category = category;
     }
 
     public double getPrice() {

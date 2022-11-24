@@ -72,7 +72,7 @@ public class Store {
         provider.addProduct(provider.getProduct());
     }
     public void deleteProduct(){
-        provider.deleteProduct(provider.getProduct());
+        provider.deleteLastProduct();
     }
     public void getStoreData(){
         provider.showListToStore();
